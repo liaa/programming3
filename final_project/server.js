@@ -82,32 +82,32 @@ function creatingObjects() {
         for (var x = 0; x < matrix[y].length; x++) {
             if (matrix[y][x] == 2) {
                 var grassEater = new GrassEater(x, y);
-                eatArr.push(grassEater);
+                grasseatArr.push(grassEater);
                 eatHashiv++;
             } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
-                grassHashiv++
+                grassHashiv++;
             }
             else if (matrix[y][x] == 3) {
                 var predator = new Predator(x, y);
                 predatorArr.push(predator);
-                predatorHashiv++
+                predatorHashiv++;
             }
             else if (matrix[y][x] == 4) {
                 var mard = new Mard(x, y);
                 mardArr.push(mard);
-                mardHashiv++
+                mardHashiv++;
             }
             else if (matrix[y][x] == 5) {
                 var jur = new Jur(x, y);
                 jurArr.push(jur);
-                jurHashiv++
+                jurHashiv++;
             }
             else if (matrix[y][x] == 6) {
                 var fish = new Fish(x, y);
                 fishArr.push(fish);
-                fishHashiv++
+                fishHashiv++;
             }
         }
     }

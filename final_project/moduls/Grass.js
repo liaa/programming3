@@ -4,10 +4,8 @@ var random = require("./random");
 module.exports = class Grass extends LiveForm  {
     constructor(x, y) {
         super(x, y);
-        this.x = x;
-        this.y = y;
         this.multiply = 0;
-        this.directions = [];
+
     }
     getnewdirections() {
         this.directions = [
