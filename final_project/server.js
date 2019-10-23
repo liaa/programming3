@@ -178,9 +178,13 @@ function game() {
         grassEaterCounter: grasseaterHashiv,
         grassEaterLiveCounter: grassEaterArr.length,
         predatorCounter: predatorHashiv,
+        predatorLiveCounter: predatorArr.length,
         mardCounter: mardHashiv,
+       mardLiveCounter:mardArr.length,
         jurCounter: jurHashiv,
+       jurLiveCounter: grassArr.length,
         fishCounter: fishHashiv,
+        fishLiveCounter: fishArr.length,
         weather: weather
     }
 

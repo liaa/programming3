@@ -10,9 +10,13 @@ function setup() {
     let grassEaterCountElement = document.getElementById('grassEaterCount');
     let grassEaterLiveCountElement = document.getElementById('grassEaterLiveCount');
     let predatorCountElement = document.getElementById('predatorCount');
+    let predatorLiveCountElement = document.getElementById('predatorLiveCount');
     let mardCountElement = document.getElementById('mardCount');
+    let mardLiveCountElement = document.getElementById('mardLiveCount');
     let jurCountElement = document.getElementById('jurCount');
+    let jurLiveCountElement = document.getElementById('jurLiveCount');
     let fishCountElement = document.getElementById('fishCount');
+    let fishLiveCountElement = document.getElementById('fishLiveCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
@@ -39,10 +43,13 @@ function setup() {
         grassEaterCountElement.innerText = data.grassEaterCounter;
         grassEaterLiveCountElement.innerText = data.grassEaterLiveCounter;
         predatorCountElement.innerText = data.predatorCounter;
-
+        predatorLiveCountElement.innerText = data.predatorLiveCounter;
         mardCountElement.innerText = data.mardCounter;
+        mardLiveCountElement.innerText = data.mardLiveCounter;
         jurCountElement.innerText = data.jurCounter;
+        jurLiveCountElement.innerText = data.jurLiveCounter;
         fishCountElement.innerText = data.fishCounter;
+        fishLiveCountElement.innerText = data.fishLiveCounter;
         //! Every time it creates new Canvas with new matrix size
         createCanvas(matrix[0].length * side, matrix.length * side)
         //! clearing background by setting it to new grey color
