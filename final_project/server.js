@@ -67,7 +67,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, mard, jur, fis
         matrix[customY][customX] = 6;
     }
 }
-matrixGenerator(40, 70, 15, 15, 5);
+matrixGenerator(40, 70, 15, 15, 2, 20);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -180,9 +180,9 @@ function game() {
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
         mardCounter: mardHashiv,
-       mardLiveCounter:mardArr.length,
+        mardLiveCounter:mardArr.length,
         jurCounter: jurHashiv,
-       jurLiveCounter: grassArr.length,
+        jurLiveCounter: jurArr.length,
         fishCounter: fishHashiv,
         fishLiveCounter: fishArr.length,
         weather: weather
@@ -194,4 +194,4 @@ function game() {
 
 
 
-setInterval(game, 500)
+setInterval(game, 2000)
