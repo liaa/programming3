@@ -1,5 +1,5 @@
 var LiveForm = require("./LiveForm");
-var random = require("./random.js");
+var random = require("./random");
 
 
 
@@ -39,6 +39,7 @@ module.exports = class Fish extends LiveForm {
         let newCell = random(emptyCells);
 
         if (newCell) {
+            fishHashiv++;
             let x = newCell[0];
             let y = newCell[1];
             matrix[y][x] = 6;

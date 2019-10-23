@@ -161,7 +161,7 @@ function game() {
     }
     if (jurArr[0] !== undefined) {
         for (var i in jurArr) {
-            jurArr[i].eat();
+            jurArr[i].mul();
         }
     }
     if (fishArr[0] !== undefined) {
@@ -194,4 +194,4 @@ function game() {
 
 
 
-setInterval(game, 200)
+setInterval(game, 500)

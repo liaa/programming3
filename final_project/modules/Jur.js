@@ -1,7 +1,11 @@
-class Jur {
+var LiveForm = require("./LiveForm");
+
+
+
+
+module.exports = class Jur extends LiveForm {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        super(x, y);
         this.directions = [];
     }
     getNewDirections() {
@@ -20,6 +24,7 @@ class Jur {
         return found;
     }
     mul() {
+        jurHashiv++;
         let newCell = this.chooseCell();
 
         if (newCell[0] != undefined) {
