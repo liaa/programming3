@@ -1,10 +1,99 @@
 <html>
-  <head>
-    <title>Sample "Hello, World" Application</title>
-  </head>
-  <body>
-      <h1>test html file</h1>
-      <p>put all static files to "public" folder</p>
-  </body>
+
+<head>
+    <meta charset="utf8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1 {
+            padding: 20px;
+            text-align: center;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif !important;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <h1>Ծրագրավորում III Ստեփանակերտ</h1>
+            </tr>
+            <tr>
+                <h1>Լիանա Միրզոյան</h1>
+            </tr>
+            <tr>
+                <td>Եղանակ</td>
+                <td id="weather"></td>
+            </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Գույն</th>
+                <th scope="col">Նկարագրություն</th>
+                <th scope="col">Ծնվել է</th>
+                <th scope="col">Այս պահին կա</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td scope="row" style="background-color:green;"></td>
+                <td>Խոտը բազմանում է մոտակա 8 վանդակներում,չի մահանում </td>
+                <td id="grassCount"></td>
+                <td id="grassLiveCount"></td>
+                
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td scope="row" style="background-color:orange;"></td>
+                <td>Խոտակերը քայլում է 0-ներով,ուտում է խոտին ու բազմանում է,երբ էներգիան հասնում է 5ի և մահանում է,երբ հասնում է 0ի</td>
+                <td id="grassEaterCount"></td>
+                <td id="grassEaterLiveCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td scope="row" style="background-color:red;"></td>
+                <td>Գիշատիչը ուտում է խոտակերին,քայլում է խոտի վրայով,բազմանում է,երբ էներգիան հասնում է 40ի և մահանում է,երբ հասնում է 0ի</td>
+                <td id="predatorCount"></td>
+                <td id="predatorLiveCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td scope="row" style="background-color:black;"></td>
+                <td>Մարդը սպանում է գիշատիչին,քայլում է խոտի վրայով,բազմանում է,երբ էներգիան հասնում է 30ի և մահանում է,երբ հասնում է 10ի</td>
+                <td id="mardCount"></td>
+                <td id="mardLiveCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background-color:blue;"></td>
+                <td>Ջուրը բազմանում է ուղղահայաց և ստեղծում գետ,չի մահանում,չի ուտում ոչ մեկին </td>
+                <td id="jurCount"></td>
+                <td id="jurLiveCount"></td>
+            </tr>
+        </tr>
+        <tr>
+            <th scope="row">6</th>
+            <td scope="row" style="background-color:violet;"></td>
+            <td>Ձուկը ծնվում է ջրում,չի բազմանում,չի մահանում</td>
+            <td id="fishCount"></td>
+            <td id="fishLiveCount"></td>
+        </tr>
+
+        </tbody>
+    </table>
+    <script src="p5.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+
 
 </html>

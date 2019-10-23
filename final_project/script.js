@@ -1,6 +1,6 @@
 function setup() {
     var socket = io();
-    var side = 30;
+    var side = 10;
     var matrix = [];
     
     //! Getting DOM objects (HTML elements)
@@ -8,8 +8,9 @@ function setup() {
     let grassCountElement = document.getElementById('grassCount');
     let grassLiveCountElement = document.getElementById('grassLiveCount');
     let grassEaterCountElement = document.getElementById('grassEaterCount');
+    let grassEaterLiveCountElement = document.getElementById('grassEaterLiveCount');
     let predatorCountElement = document.getElementById('predatorCount');
-    let mardCountElement = document.getElementById('termCount');
+    let mardCountElement = document.getElementById('mardCount');
     let jurCountElement = document.getElementById('jurCount');
     let fishCountElement = document.getElementById('fishCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
@@ -35,9 +36,11 @@ function setup() {
         weatherElement.innerText = data.weather; "summer"
         grassCountElement.innerText = data.grassCounter;
         grassLiveCountElement.innerText = data.grassLiveCounter;
-        grassEaterCountElement.innerText = data.eatCounter;
+        grassEaterCountElement.innerText = data.grassEaterCounter;
+        grassEaterLiveCountElement.innerText = data.grassEaterLiveCounter;
         predatorCountElement.innerText = data.predatorCounter;
-        mardCountElement.innerText = data.termCounter;
+
+        mardCountElement.innerText = data.mardCounter;
         jurCountElement.innerText = data.jurCounter;
         fishCountElement.innerText = data.fishCounter;
         //! Every time it creates new Canvas with new matrix size
