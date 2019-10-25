@@ -6,7 +6,7 @@ var random = require("./random.js");
 module.exports = class Mard extends LiveForm {
     constructor(x, y) {
         super(x, y);
-        this.life = 15;
+        this.life = 20;
         this.directions = [];
     }
     getnewdirections() {
@@ -51,7 +51,7 @@ module.exports = class Mard extends LiveForm {
             let mard = new Mard(x, y);
             mardArr.push(mard);
 
-            this.life = 15;
+            this.life = 50;
         }
     }
     eat() {
@@ -105,7 +105,7 @@ module.exports = class Mard extends LiveForm {
             this.y = y;
             this.x = x;
         }
-        if (this.life < 10) {
+        if (this.life < 0) {
 
             this.die();
         }

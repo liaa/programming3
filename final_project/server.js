@@ -1,3 +1,4 @@
+let count = true;
 var Grass = require("./modules/Grass.js");
 var GrassEater = require("./modules/GrassEater.js");
 var Predator = require("./modules/Predator.js");
@@ -19,7 +20,7 @@ matrix = [];
 
 // statistics start
 grassHashiv = 0;
-grasseaterHashiv = 0;
+grassEaterHashiv = 0;
 predatorHashiv = 0;
 mardHashiv = 0;
 jurHashiv = 0;
@@ -29,7 +30,7 @@ fishHashiv = 0;
 // time = 0
 //! Creating MATRIX -- START
 
-function matrixGenerator(matrixSize, grass, grasseater, predator, mard, jur, fish) {
+function matrixGenerator(matrixSize, grass, grassEater, predator, mard, jur, fish) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -41,7 +42,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, mard, jur, fis
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 1;
     }
-    for (let i = 0; i < grasseater; i++) {
+    for (let i = 0; i < grassEater; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 2;
@@ -67,10 +68,9 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, mard, jur, fis
         matrix[customY][customX] = 6;
     }
 }
-matrixGenerator(40, 70, 15, 15, 2, 20);
+matrixGenerator(40, 50, 15, 15, 20,1 );
 
 
-//! SERVER STUFF  --  START
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000);
-//! SERVER STUFF END  --  END
+
 
 function creatingObjects() {
     for (var y = 0; y < matrix.length; y++) {
@@ -88,7 +88,7 @@ function creatingObjects() {
             if (matrix[y][x] == 2) {
                 var grassEater = new GrassEater(x, y);
                 grassEaterArr.push(grassEater);
-                grasseaterHashiv++;
+                grassEaterHashiv++;
             } else if (matrix[y][x] == 1) {
                 var grass = new Grass(x, y);
                 grassArr.push(grass);
@@ -121,20 +121,20 @@ function creatingObjects() {
 creatingObjects();
 
 let exanak = -10;
-let weather = "spring"
+let weather = "summer"
 
 function game() {
 
     exanak++;
     if (exanak <= 0) {
-        weather = "spring"
+        weather = "summer"
 
     } else if (exanak <= 10) {
-        weather = "summer"
-    } else if (exanak <= 20) {
         weather = "autumn"
-    } else if (exanak <= 30) {
+    } else if (exanak <= 20) {
         weather = "winter"
+    } else if (exanak <= 30) {
+        weather = "spring"
     } else if (exanak > 30) {
         exanak = -10;
     }
@@ -162,29 +162,54 @@ function game() {
     if (jurArr[0] !== undefined) {
         for (var i in jurArr) {
             jurArr[i].mul();
+            
+            if (jurArr.length == 10 && count ) {
+                count =false
+                let curr = random(jurArr);
+                for (var l = 0; l < 2; l++) {
+                    matrix[curr.y][curr.x] = 7;
+                    let fish = new Fish(curr.x, curr.y);
+                    fishArr.push(fish)
+                }
+    
+                for (let i in jurArr) {
+                    if (jurArr[i].x == curr.x && jurArr[i].y == curr.y) {
+                        jurArr.splice(i, 1)
+                    }
+                }
+                 count = 0;
+            }
         }
     }
     if (fishArr[0] !== undefined) {
-        for (var i in fishArr) {
-            fishArr[i].eat();
+        for (let i in fishArr) {
+            fishArr[i].move();
         }
     }
 
     //! Object to send
     let sendData = {
         matrix: matrix,
+
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
-        grassEaterCounter: grasseaterHashiv,
+
+        grassEaterCounter: grassEaterHashiv,
         grassEaterLiveCounter: grassEaterArr.length,
+
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
+
+
         mardCounter: mardHashiv,
         mardLiveCounter:mardArr.length,
+
         jurCounter: jurHashiv,
         jurLiveCounter: jurArr.length,
-        fishCounter: fishHashiv,
-        fishLiveCounter: fishArr.length,
+
+        fishCounter: 2,
+        fishLiveCounter: 2,
+
         weather: weather
     }
 
@@ -194,4 +219,4 @@ function game() {
 
 
 
-setInterval(game, 2000)
+setInterval(game, 500)
