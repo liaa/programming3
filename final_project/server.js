@@ -68,7 +68,7 @@ function matrixGenerator(matrixSize, grass, grasseater, predator, mard, jur, fis
     }
 }
 matrixGenerator(40, 70, 15, 15, 2, 20);
-//! Creating MATRIX -- END
+
 
 //! SERVER STUFF  --  START
 var express = require('express');

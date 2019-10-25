@@ -17,7 +17,6 @@ function setup() {
     let jurLiveCountElement = document.getElementById('jurLiveCount');
     let fishCountElement = document.getElementById('fishCount');
     let fishLiveCountElement = document.getElementById('fishLiveCount');
-    //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
 
@@ -54,7 +53,6 @@ function setup() {
         createCanvas(matrix[0].length * side, matrix.length * side)
         //! clearing background by setting it to new grey color
         background('#acacac');
-        //! Draw grassCount and grassEaterCount to HTML (use DOM objects to update information, yes, and use .innerText <- function)
 
         //! Drawing and coloring RECTs
         for (var i = 0; i < matrix.length; i++) {
