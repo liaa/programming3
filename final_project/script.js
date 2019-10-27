@@ -30,8 +30,6 @@ function setup() {
 
     function drawCreatures(data) {
 
-
-
         matrix = data.matrix;
         weatherElement.innerText = data.weather;
 
@@ -63,61 +61,57 @@ function setup() {
         for (var i = 0; i < matrix.length; i++) {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
-                    if (data.weather == "summer") {
+                    if (data.weather == "ամառ") {
                         fill("#00b300");
-                    } else if (data.weather == "autumn") {
+                    } else if (data.weather == "աշուն") {
                         fill("#006600");
-                    } else if (data.weather == "winter") {
+                    } else if (data.weather == "ձմեռ") {
                         fill("#00cc66");
-                    } else if (data.weather == "spring") {
+                    } else if (data.weather == "գարուն") {
                         fill("#009900");
                     }
-                    rect(j * side, i * side, side, side);
                 }
                 else if (matrix[i][j] == 2) {
-                    if (data.weather == "summer") {
+                    if (data.weather == "ամառ") {
                         fill("#ff9900");
-                    } else if (data.weather == "autumn") {
+                    } else if (data.weather == "աշուն") {
                         fill("#cc6600");
-                    } else if (data.weather == "winter") {
+                    } else if (data.weather == "ձմեռ") {
                         fill("#ffb366");
-                    } else if (data.weather == "spring") {
+                    } else if (data.weather == "գարուն") {
                         fill("#ff8c1a");
-                    } rect(j * side, i * side, side, side);
+                    }
                 }
                 else if (matrix[i][j] == 0) {
                     fill('#acacac');
-                    rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 3) {
-                    if (data.weather == "summer") {
+                    if (data.weather == "ամառ") {
                         fill("#ff0000");
-                    } else if (data.weather == "autumn") {
+                    } else if (data.weather == "աշուն") {
                         fill("#b30000");
-                    } else if (data.weather == "winter") {
+                    } else if (data.weather == "ձմեռ") {
                         fill("#ff6666");
-                    } else if (data.weather == "spring") {
+                    } else if (data.weather == "գարուն") {
                         fill("#ff1a1a");
-                    } rect(j * side, i * side, side, side);
+                    }
                 }
                 else if (matrix[i][j] == 4) {
                     fill('black');
-                    rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 5) {
-                    if (data.weather == "summer") {
+                    if (data.weather == "ամառ") {
                         fill("#0033cc");
-                    } else if (data.weather == "autumn") {
+                    } else if (data.weather == "աշուն") {
                         fill("#000099");
-                    } else if (data.weather == "winter") {
+                    } else if (data.weather == "ձմեռ") {
                         fill("#0066cc");
-                    } else if (data.weather == "spring") {
+                    } else if (data.weather == "գարուն") {
                         fill("#0000ff");
-                    } rect(j * side, i * side, side, side);
+                    }
                 }
                 else if (matrix[i][j] == 6) {
                     fill('pink');
-                    rect(j * side, i * side, side, side);
                 }
-                
+                rect(j * side, i * side, side, side);
             }
         }
     }

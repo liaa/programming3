@@ -68,7 +68,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator, mard, jur, fis
         matrix[customY][customX] = 6;
     }
 }
-matrixGenerator(40, 50, 15, 15, 20,1 );
+matrixGenerator(30, 40, 15, 15, 20,1 );
 
 
 var express = require('express');
@@ -121,20 +121,20 @@ function creatingObjects() {
 creatingObjects();
 
 let exanak = -10;
-let weather = "summer"
+let weather = "ամառ"
 
 function game() {
 
     exanak++;
     if (exanak <= 0) {
-        weather = "summer"
+        weather = "ամառ"
 
     } else if (exanak <= 10) {
-        weather = "autumn"
+        weather = "աշուն"
     } else if (exanak <= 20) {
-        weather = "winter"
+        weather = "ձմեռ"
     } else if (exanak <= 30) {
-        weather = "spring"
+        weather = "գարուն"
     } else if (exanak > 30) {
         exanak = -10;
     }
@@ -163,8 +163,8 @@ function game() {
         for (var i in jurArr) {
             jurArr[i].mul();
             
-            if (jurArr.length == 10 && count ) {
-                count =false
+            if (jurArr.length >= 10 && count) {
+                count = false;
                 let curr = random(jurArr);
                 for (var l = 0; l < 2; l++) {
                     matrix[curr.y][curr.x] = 7;
@@ -177,7 +177,6 @@ function game() {
                         jurArr.splice(i, 1)
                     }
                 }
-                 count = 0;
             }
         }
     }
